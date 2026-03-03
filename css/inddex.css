@@ -1,0 +1,196 @@
+/* ==========================================
+   1. CONFIGURACIÓN GENERAL
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #3b141c; /* Fondo vino oficial */
+    color: white;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   2. NAVBAR (Asegurando conexión con tu HTML)
+   ========================================== */
+.navbar {
+    display: flex;
+   font-family: "Miniver", sans-serif;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: transparent;
+    position: absolute; 
+    width: 100%;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem;
+}
+
+.logo img {
+    height: 30px; /* Ajusta según tu logo */
+    width: 50px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 60px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f3961c;
+}
+
+/* ==========================================
+   3. SECCIÓN HERO (Centrado Maestro)
+   ========================================== */
+.hero-section {
+    min-height: 100vh;         /* Ocupa todo el alto de la pantalla */
+    display: flex;             
+    align-items: center;       /* CENTRADO VERTICAL */
+    justify-content: center;   /* CENTRADO HORIZONTAL */
+    padding: 80px 8% 40px 8%;  /* Padding superior para no chocar con el navbar */
+    gap: 40px;
+}
+
+/* Contenedor del texto */
+.content {
+    flex: 50; 
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-title {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(5rem, 8vw, 5rem);
+    color: #f3961c;
+    margin-bottom: 10px;
+    line-height: 2.2;
+}
+
+.sub-title {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.text-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    color: #cccccc;
+    max-width: 500px;
+    justify-content: center;
+}
+
+/* ==========================================
+   4. BOTONES (Primario y Secundario)
+   ========================================== */
+.button-group {
+    display: flex;
+    gap: 70px;
+}
+
+.btn {
+    padding: 12px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    color: white;
+    transition: 0.3s;
+    text-align: center;
+}
+
+/* Estilo para los dos botones de tu HTML */
+.btn.primary, .btn.secondary {
+    background-color: #e67e22;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background-color: #d35400;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* ==========================================
+   5. CONTENEDOR DE IMAGEN
+   ========================================== */
+.image-container {
+    flex: 50;
+    display: flex;
+    justify-content: center;
+}
+
+.floating-coffee {
+    width: 100%;
+    max-width: 550px; 
+    height: auto;
+    filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5));
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ==========================================
+   6. RESPONSIVE
+   ========================================== */
+@media (max-width: 992px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 140px;
+    }
+
+    .content {
+        align-items: center;
+    }
+
+    .text-description {
+        max-width: 100%;
+    }
+
+    .image-container {
+        order: -1; /* Imagen arriba en móvil */
+    }
+
+    .floating-coffee {
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 600px) {
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .nav-links {
+        display: none; /* Oculta menú en móviles pequeños */
+    }
+}
